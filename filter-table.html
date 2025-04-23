@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript">
+        function filterChange(){
+            var dropdown= document.getElementById("gender")
+            var selectedValue=dropdown.value;
+            var table=document.getElementById("student-table")
+            var rows=table.getElementsByTagName("tr");
+
+        
+        for(var i=1; i<rows.length;i++)
+        {
+            var row=rows[i];
+            var gender=row.cells[2].textContent.trim();
+
+            if(selectedValue==="All"||gender===selectedValue)
+            {
+                row.style.display="";
+            }
+            else
+            {
+                row.style.display="none";
+            }
+        }
+
+        }
+    </script>
+    <style>
+        table{
+            border-collapse: collapse;
+            text-align: center;
+
+        }
+        th,td{
+            padding: 8px;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <center>
+        <h1>STUDENT TABLE</h1>
+        <hr/>
+    <label for="gender">Filter by Gender :</label>
+    <select id="gender" onchange="filterChange()">
+        <option value="All">All</option>
+        <option value="MALE">MALE</option>
+        <option value="FEMALE">FEMALE</option>
+    </select>
+    <hr/>
+    <table id="student-table" >
+        <thead>
+            <tr>
+                <th>Emp ID</th>
+                <th>Name</th>
+                <th>gender</th>
+                <th>Department</th>
+            </tr>
+          
+        </thead>
+        <tbody>
+            <tr>
+                <td>111</td>
+                <td>AJAY</td>
+                <td>MALE</td>
+                <td>Service</td>
+            </tr>
+            <tr>
+                <td>112</td>
+                <td>RIMA</td>
+                <td>FEMALE</td>
+                <td>IT</td>
+            </tr>
+            <tr>
+                <td>113</td>
+                <td>VIJAY</td>
+                <td>MALE</td>
+                <td>Delivery</td>
+            </tr>
+            <tr>
+                <td>114</td>
+                <td>RIYA</td>
+                <td>FEMALE</td>
+                <td>Product</td>
+            </tr>
+            <tr>
+                <td>115</td>
+                <td>AMAN</td>
+                <td>MALE</td>
+                <td>Service</td>
+            </tr>
+        </tbody>
+    </table>
+</center> 
+    
+</body>
+</html>
